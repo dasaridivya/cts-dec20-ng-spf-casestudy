@@ -1,0 +1,57 @@
+<div class = "container-fluid">
+    <h2 class="text-center">Policy Management System</h2><hr/>
+    <div class="topnav">
+        <button (click)="home()">Home</button></div>
+       <form #userForm = "ngForm" (ngSubmit) = "handleFormValues(userForm.value)">
+           <table>
+               <tr><th>Customer Info</th></tr>
+           <tr>
+           <th>First Name</th>
+            <td><input type = "text" name = "FirstName" [(ngModel)] = "FirstName" 
+            #un = "ngModel" required autocomplete="off" class = "form-control"></td>
+            <div class = "alert alert-danger" [hidden] = "un.valid || un.pristine">First Name is mandatory</div>
+            </tr>
+            <tr>
+            <th>Last Name</th>
+            <td><input type = "text" name = "LastName" [(ngModel)] = "LastName"
+            #Ln = "ngModel" required class = "form-control"></td>
+            <div class = "alert alert-danger"  [hidden] = "Ln.valid || Ln.pristine">Last Name is mandatory</div>
+            </tr>
+        <tr>
+            <th> Address </th>
+            <td><input type = "text" name = "address" [(ngModel)] = "address"
+          #ad = "ngModel" required class = "form-control"></td>
+          <div class = "alert alert-danger"  [hidden] = "ad.valid || ad.pristine">Address is mandatory</div>
+      </tr>
+      <tr>
+        <th>Contact No</th>
+        <td><input type = "text" name = "contact"  pattern="[6789][0-9]{9}" [(ngModel)] = "contact" 
+        #ph = "ngModel" required class = "form-control"></td>
+        <div class = "alert alert-danger"  [hidden] = "ph.valid || ph.pristine">contact number is mandatory</div>
+        </tr>
+        <tr>
+         <th>Email Address</th>
+         <input type = "email" name = "email" [(ngModel)] = "email"
+          #em = "ngModel" required class = "form-control">
+          <div class = "alert alert-danger"  [hidden] = "em.valid || em.pristine">Email Address is mandatory</div>
+         </tr>
+          <tr>
+            <th>Password</th>
+            <td><input type = "password" name = "password" [(ngModel)] = "password"
+            #pw = "ngModel" required class = "form-control"></td>
+            <div class = "alert alert-danger"  [hidden] = "pw.valid || pw.pristine">Password is mandatory</div>
+            </tr>
+            <tr>
+              <th>Confirm password</th>
+              <td><input type = "password" name = "cpassword" [(ngModel)] = "cpassword"
+              #cpw = "ngModel" required class = "form-control"></td>
+              <div class = "alert alert-danger"  [hidden] = "cpw.valid || cpw.pristine">confirm password is mandatory</div>
+          </tr>
+          <tr>
+              <th><input type = "reset" class = "btn btn-primary" value = "Reset"> </th>
+        <th><input type = "submit" class = "btn btn-primary" value = "Submit" [disabled] = "userForm.invalid" ></th></tr>
+
+        </table>
+    </form>
+    <hr />
+    
